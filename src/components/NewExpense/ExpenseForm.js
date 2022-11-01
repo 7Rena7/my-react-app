@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../UI/Button";
 
 import "./ExpenseForm.css";
 
@@ -64,7 +65,7 @@ export default function ExpenseForm(props) {
             type="number"
             value={userInput.enteredAmount}
             onChange={amountChangeHandler}
-            placeholder="$0,00"
+            placeholder="$ 0,00"
             min="0.01"
             step="0.01"
           />

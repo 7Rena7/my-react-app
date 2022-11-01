@@ -1,14 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,500;1,300;1,500&display=swap");
+/* COLOR PALETTES: 
+https://coolors.co/palette/780000-c1121f-fdf0d5-003049-669bbc 
+https://coolors.co/palette/03071e-370617-6a040f-9d0208-d00000-dc2f02-e85d04-f48c06-faa307-ffba08
+*/
+
 .App {
   text-align: center;
+  box-sizing: border-box;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #fdf0d5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #333333;
+  font-family: "Karla", "sans-serif";
+  font-weight: 300;
+}
+
+h2 {
+  font-size: calc(30px + 2vmin);
+  font-weight: 800;
 }

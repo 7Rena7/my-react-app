@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,500;1,300;1,500&display=swap");
+
 .expense-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.7rem 1.3rem;
   margin: 1rem 0;
-  background-color: #4b4b4b;
+  background-color: #03071e;
+  font-family: "Karla", "sans-serif";
 }
 
 .expense-item__description {
@@ -17,20 +20,17 @@
   flex: 1;
 }
 
-.expense-item h2 {
-  color: #3a3a3a;
-  font-size: 1rem;
+.expense-item__description h2 {
   flex: 1;
-  margin: 0 1rem;
+  margin: 0 1.5rem;
   color: white;
+  font-size: 1.25rem;
 }
 
 .expense-item__price {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
   color: white;
-  background-color: #40005d;
-  border: 1px solid white;
   padding: 0.5rem;
   border-radius: 12px;
 }

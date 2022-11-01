@@ -1,6 +1,7 @@
 import React from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+import Card from "../UI/Card";
 
 const getRandomId = () => {
   const MAX_ID = 10000;
@@ -17,8 +18,8 @@ export default function NewExpense(props) {
   };
 
   return (
-    <div className="new-expense">
+    <Card className="new-expense">
       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
-    </div>
+    </Card>
   );
 }
