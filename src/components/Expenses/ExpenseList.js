@@ -10,13 +10,28 @@ const getCurrentYear = () => {
 };
 
 export default function ExpenseList(props) {
-  const { expenses } = props;
+  const expenses = props.items;
 
-  const [filteredYear, setFilteredYear] = useState(getCurrentYear());
+  const [filteredYear, setFilteredYear] = useState();
 
   const saveYearSelected = (year) => {
     setFilteredYear(year);
   };
+
+  const filteredExpenses = expenses.filter((expense) => {
+    return (
+      expense.date.getFullYear().toString() === filteredYear ||
+      filteredYear === "All"
+    );
+  });
+
+  let expensesContent = <p>No expenses found for the selected filter.</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem key={expense.id} expense={expense} />
+    ));
+  }
 
   return (
     <Card className="expenses">
@@ -24,10 +39,7 @@ export default function ExpenseList(props) {
         selectedYear={filteredYear}
         onYearSelection={saveYearSelected}
       />
-      <ExpenseItem expense={expenses[0]} />
-      <ExpenseItem expense={expenses[1]} />
-      <ExpenseItem expense={expenses[2]} />
-      <ExpenseItem expense={expenses[3]} />
+      {expensesContent}
     </Card>
   );
 }

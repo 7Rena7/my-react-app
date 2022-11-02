@@ -3,6 +3,12 @@ import Button from "../UI/Button";
 
 import "./ExpenseForm.css";
 
+const manageDate = (dateString) => {
+  let date = new Date(dateString);
+  date.setDate(date.getDate() + 1);
+  return date;
+};
+
 export default function ExpenseForm(props) {
   const [userInput, setUserInput] = useState({
     enteredAmount: "",
@@ -42,7 +48,7 @@ export default function ExpenseForm(props) {
     const expenseData = {
       amount: userInput.enteredAmount,
       title: userInput.enteredTitle,
-      date: new Date(userInput.enteredDate),
+      date: manageDate(userInput.enteredDate),
     };
 
     props.onSaveExpenseData(expenseData);
