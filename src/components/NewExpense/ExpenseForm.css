@@ -19,6 +19,13 @@
   max-width: 100%;
 }
 
+.new-expense__btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 1rem;
+}
+
 .new-expense__actions {
   text-align: right;
 }

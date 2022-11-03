@@ -32,9 +32,9 @@ export default function NewExpense(props) {
 
   if (!isEditting) {
     return (
-      <div className="new-expense">
+      <Card className="new-expense">
         <button onClick={handleBtnClick}>Add new expense</button>
-      </div>
+      </Card>
     );
   }
 
