@@ -6,10 +6,6 @@ import ExpensesList from "./ExpensesList";
 import ExpensesFilter from "./ExpensesFilter";
 import ExpensesChart from "./ExpensesChart";
 
-const getCurrentYear = () => {
-  return new Date().getFullYear();
-};
-
 export default function Expenses(props) {
   const expenses = props.items;
 
@@ -26,6 +22,10 @@ export default function Expenses(props) {
     );
   });
 
+  const handleDeleteExpense = (id) => {
+    props.onDeleteClick(id);
+  };
+
   return (
     <Card className="expenses">
       <ExpensesFilter
@@ -33,7 +33,10 @@ export default function Expenses(props) {
         onYearSelection={saveYearSelected}
       />
       <ExpensesChart expenses={filteredExpenses} />
-      <ExpensesList items={filteredExpenses} />
+      <ExpensesList
+        items={filteredExpenses}
+        onDeleteClick={handleDeleteExpense}
+      />
     </Card>
   );
 }

@@ -11,14 +11,18 @@ export default function ExpensesList(props) {
     );
   }
 
-  const orderedExpenses = props.items.sort((a, b) => {
-    return a.date < b.date;
-  });
+  const handleDeleteExpense = (id) => {
+    props.onDeleteClick(id);
+  };
 
   return (
     <ul className="expenses-list">
-      {orderedExpenses.map((expense) => (
-        <ExpenseItem key={expense.id} expense={expense} />
+      {props.items.map((expense) => (
+        <ExpenseItem
+          key={expense.id}
+          expense={expense}
+          onDeleteClick={handleDeleteExpense}
+        />
       ))}
     </ul>
   );

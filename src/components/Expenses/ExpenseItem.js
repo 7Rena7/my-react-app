@@ -4,7 +4,11 @@ import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
 export default function ExpenseItem(props) {
-  const { date, title, amount } = props.expense;
+  const { id, date, title, amount } = props.expense;
+
+  const handleDeleteExpense = () => {
+    props.onDeleteClick(id);
+  };
 
   return (
     <li>
@@ -14,6 +18,12 @@ export default function ExpenseItem(props) {
           <h2>{title}</h2>
           <div className="expense-item__price">${amount}</div>
         </div>
+        <button
+          className="expense-item__delete-btn"
+          onClick={handleDeleteExpense}
+        >
+          Delete
+        </button>
       </Card>
     </li>
   );

@@ -35,6 +35,22 @@
   border-radius: 12px;
 }
 
+.expense-item__delete-btn {
+  cursor: pointer;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.4rem;
+  background-color: #f48c06;
+  color: white;
+  font-weight: 500;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.expense-item__delete-btn:hover,
+.expense-item__delete-btnn:active {
+  background-color: #faa307;
+}
+
 @media (min-width: 580px) {
   .expense-item__description {
     flex-direction: row;

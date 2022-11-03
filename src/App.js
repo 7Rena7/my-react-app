@@ -3,6 +3,12 @@ import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
+const removeObjectWithId = (arr, id) => {
+  const objWithIdIndex = arr.findIndex((obj) => obj.id === id);
+  arr.splice(objWithIdIndex, 1);
+  return arr;
+};
+
 const DUMMY_EXPENSES = [
   {
     id: "1111",
@@ -45,11 +51,17 @@ export default function App() {
     });
   };
 
+  const deleteExpenseHandler = (id) => {
+    setActiveExpenses((prevActiveExpenses) => {
+      return [...removeObjectWithId(prevActiveExpenses, id)];
+    });
+  };
+
   return (
     <div className="App-header">
       <h2>Expense Tracker</h2>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses items={activeExpenses} />
+      <Expenses items={activeExpenses} onDeleteClick={deleteExpenseHandler} />
     </div>
   );
 }
