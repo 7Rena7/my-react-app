@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState } from "react";
-import ExpenseList from "./components/Expenses/ExpenseList";
+import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 
 const DUMMY_EXPENSES = [
@@ -49,7 +49,7 @@ export default function App() {
     <div className="App-header">
       <h2>Expense Tracker</h2>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpenseList items={activeExpenses} />
+      <Expenses items={activeExpenses} />
     </div>
   );
 }

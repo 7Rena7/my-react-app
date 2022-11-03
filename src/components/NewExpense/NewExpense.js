@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 import Card from "../UI/Card";
@@ -9,17 +10,40 @@ const getRandomId = () => {
 };
 
 export default function NewExpense(props) {
+  const [isEditting, setIsEditting] = useState(false);
+
+  const handleBtnClick = () => {
+    setIsEditting(true);
+  };
+
+  const stopEdittinHandler = () => {
+    setIsEditting(false);
+  };
+
   const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
       ...enteredExpenseData,
       id: getRandomId(),
     };
+
+    setIsEditting(false);
     props.onAddExpense(expenseData);
   };
 
+  if (!isEditting) {
+    return (
+      <div className="new-expense">
+        <button onClick={handleBtnClick}>Add new expense</button>
+      </div>
+    );
+  }
+
   return (
     <Card className="new-expense">
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      <ExpenseForm
+        onSaveExpenseData={saveExpenseDataHandler}
+        onCancelClick={stopEdittinHandler}
+      />
     </Card>
   );
 }

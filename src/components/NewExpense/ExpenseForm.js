@@ -46,7 +46,7 @@ export default function ExpenseForm(props) {
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = {
-      amount: userInput.enteredAmount,
+      amount: +userInput.enteredAmount,
       title: userInput.enteredTitle,
       date: manageDate(userInput.enteredDate),
     };
@@ -74,6 +74,7 @@ export default function ExpenseForm(props) {
             placeholder="$ 0,00"
             min="0.01"
             step="0.01"
+            required
           />
         </div>
         <div className="new-expense__control">
@@ -82,6 +83,7 @@ export default function ExpenseForm(props) {
             value={userInput.enteredTitle}
             onChange={titleChangeHandler}
             placeholder="Title"
+            required
           />
         </div>
         <div className="new-expense__control">
@@ -91,8 +93,14 @@ export default function ExpenseForm(props) {
             onChange={dateChangeHandler}
             min="2020-01-01"
             max="2023-12-31"
+            required
           />
         </div>
+      </div>
+      <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancelClick}>
+          Cancel
+        </button>
       </div>
       <div className="new-expense__actions">
         <button type="submit">Add Expense</button>
