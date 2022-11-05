@@ -9,6 +9,8 @@ const removeObjectWithId = (arr, id) => {
   return arr;
 };
 
+// https://blog.logrocket.com/localstorage-javascript-complete-guide/
+
 const DUMMY_EXPENSES = [
   {
     id: "1111",
